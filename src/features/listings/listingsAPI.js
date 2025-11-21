@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL || "/api";
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -30,7 +30,7 @@ export const fetchListingsByPriceDiffAPI = async ({
     order,
   };
 
-  const response = await api.get("/api/listings", { params });
+  const response = await api.get("/listings", { params });
   return response.data;
 };
 
