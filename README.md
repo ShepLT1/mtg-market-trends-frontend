@@ -1,0 +1,1 @@
+# MTG Market Trends Frontend Application
