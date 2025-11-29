@@ -172,7 +172,8 @@ export default function ReportGenerator() {
         <h2>Results</h2>
         {status === "loading" && <p>Loading report...</p>}
         {status === "failed" && <p>Error: {error}</p>}
-        {status === "succeeded" && report.length > 0 && (
+        {report.length === 0 && <p>No results</p>}
+        {status === "succeeded" && (
           <div className="report-results">
             {report.map((listing, i) => (
               <CardItem key={i} card={listing} trend={trend} />
