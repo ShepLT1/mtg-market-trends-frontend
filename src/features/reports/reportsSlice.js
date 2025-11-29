@@ -41,7 +41,7 @@ const reportsSlice = createSlice({
       })
       .addCase(generateReport.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.report = action.payload.data;
+        state.report = action.payload.data || [];
         state.trend = action.payload.trend;
 
         // Add full entry to history
