@@ -44,7 +44,7 @@ export default function Dashboard() {
               <li key={"hottest" + i}>
                 <span>{listing.name} </span>
                 <span style={{ color: "limegreen" }}>
-                  + ${listing.price_diff}
+                  + {listing.price_diff_pct}%
                 </span>
               </li>
             ))}
@@ -58,7 +58,7 @@ export default function Dashboard() {
               <li key={"coldest" + i}>
                 <span>{listing.name} </span>
                 <span style={{ color: "red" }}>
-                  - ${Math.abs(listing.price_diff)}
+                  - {Math.abs(listing.price_diff_pct)}%
                 </span>
               </li>
             ))}

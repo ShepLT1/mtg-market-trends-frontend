@@ -5,15 +5,19 @@ export default function CardItem({ card, trend }) {
     trend === "hot" ? "limegreen" : trend === "cold" ? "red" : "black";
   const trendPrice =
     trend === "hot"
-      ? `+ $${card.price_diff.toFixed(2)}`
-      : `- $${Math.abs(card.price_diff.toFixed(2))}`
+      ? `+ $${Number(parseFloat(card.curr_price) - parseFloat(card.start_price)).toFixed(2)} (${
+          card.price_diff_pct
+        }%)`
+      : `- $${Number(parseFloat(card.start_price) - parseFloat(card.curr_price)).toFixed(2)} (${Math.abs(
+          card.price_diff_pct
+        )}%)`;
 
   return (
     <div className="card-item">
       <img src={card.image_uri} alt={card.name} />
       <div className="card-item-data">
         <span>
-          <b>Price:</b> ${card.curr_price}
+          <b>Price:</b> ${Number(card.curr_price).toFixed(2)}
         </span>
         <span>
           <b>Diff:</b>{" "}
