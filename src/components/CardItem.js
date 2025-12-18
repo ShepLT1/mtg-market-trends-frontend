@@ -8,9 +8,9 @@ export default function CardItem({ card, trend }) {
       ? `+ $${Number(parseFloat(card.curr_price) - parseFloat(card.start_price)).toFixed(2)} (${
           card.price_diff_pct
         }%)`
-      : `- $${Number(parseFloat(card.start_price) - parseFloat(card.curr_price)).toFixed(2)} (${Math.abs(
+      : trend === "cold" ? `- $${Number(parseFloat(card.start_price) - parseFloat(card.curr_price)).toFixed(2)} (${Math.abs(
           card.price_diff_pct
-        )}%)`;
+        )}%)` : null;
 
   return (
     <div className="card-item">
@@ -19,12 +19,13 @@ export default function CardItem({ card, trend }) {
         <span>
           <b>Price:</b> ${Number(card.curr_price).toFixed(2)}
         </span>
-        <span>
+        {trend === "hot" || trend === "cold" ? <span>
           <b>Diff:</b>{" "}
           <span style={{ color: trendColor }}>
             {trendPrice}
           </span>
         </span>
+        : <></>}
         <span>
           <b>CN:</b> {card.collector_num}
         </span>

@@ -10,7 +10,7 @@ export const fetchCards = createAsyncThunk(
 
 const cardsSlice = createSlice({
   name: "cards",
-  initialState: { list: [], page: 1, limit: 50, status: "idle", error: null },
+  initialState: { cards: [], page: 1, limit: 50, status: "idle", error: null },
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -19,7 +19,7 @@ const cardsSlice = createSlice({
       })
       .addCase(fetchCards.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.list = action.payload.data;
+        state.cards = action.payload.data;
         state.page = action.payload.page;
         state.limit = action.payload.limit;
       })

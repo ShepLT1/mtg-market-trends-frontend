@@ -140,7 +140,6 @@ export default function ReportGenerator() {
             <table>
               <thead>
                 <tr>
-                  <th>#</th>
                   <th>Trend</th>
                   <th>Card Count</th>
                   <th>Unit</th>
@@ -154,7 +153,6 @@ export default function ReportGenerator() {
                     onClick={() => handleHistoryClick(entry)}
                     className={entry === formValues ? "selected" : ""}
                   >
-                    <td>{index + 1}</td>
                     <td>{entry.trend}</td>
                     <td>{entry.limit}</td>
                     <td>{entry.unit}</td>
