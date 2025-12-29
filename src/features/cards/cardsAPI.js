@@ -7,7 +7,6 @@ const api = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-// Fetch cards with optional filters
 export const fetchCardsAPI = async ({ name, page = 1, limit = 50 } = {}) => {
   const params = { page, limit };
   if (name) params.name = name;
@@ -15,3 +14,11 @@ export const fetchCardsAPI = async ({ name, page = 1, limit = 50 } = {}) => {
   const response = await api.get("/cards", { params });
   return response.data;
 };
+
+export const fetchCardNamesAPI = async ({ name, limit = 20 } = {}) => {
+  const params = { name, limit };
+  const response = await api.get("/cards/names", { params });
+  return response.data;
+}
+
+// TODO: For card search, create endpoints and db query to get all card names (1 card per name i.e. filter out variants) where name contains value of search query (triggers after 1 second typing delay). Results displayed in dropdown. On selection, call fetchCardNames

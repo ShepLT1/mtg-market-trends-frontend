@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cardsReducer from "../features/cards/cardsSlice";
+import cardsSearchReducer from "../features/cards/cardsSearchSlice";
 import listingsReducer from "../features/listings/listingsSlice";
 import reportsReducer from "../features/reports/reportsSlice";
 
 export const store = configureStore({
   reducer: {
     cards: cardsReducer,
+    cardsSearch: cardsSearchReducer,
     listings: listingsReducer,
     reports: reportsReducer,
   },
