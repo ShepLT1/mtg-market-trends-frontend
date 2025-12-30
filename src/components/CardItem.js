@@ -16,22 +16,17 @@ export default function CardItem({ card, trend }) {
     <div className="card-item">
       <img src={card.image_uri} alt={card.name} />
       <div className="card-item-data">
-        <span>
-          <b>Price:</b> ${Number(card.curr_price).toFixed(2)}
-        </span>
-        {trend === "hot" || trend === "cold" ? <span>
-          <b>Diff:</b>{" "}
-          <span style={{ color: trendColor }}>
-            {trendPrice}
+        <div className="card-item-data-main">
+          <span className="card-price">
+            ${Number(card.curr_price).toFixed(2)}
           </span>
-        </span>
-        : <></>}
-        <span>
-          <b>CN:</b> {card.collector_num}
-        </span>
-        <span>
-          <b>Finish:</b> {card.finish}
-        </span>
+          {trend === "hot" || trend === "cold" ? (
+            <span style={{ color: trendColor }}>{trendPrice}</span>
+          ) : (
+            <></>
+          )}
+        </div>
+        <span>{card.finish.charAt(0).toUpperCase() + card.finish.slice(1)}</span>
       </div>
     </div>
   );

@@ -32,11 +32,12 @@ export default function CardSearch() {
   };
 
   return (
-    <div className="card-search-page">
-      <h1>Search Cards</h1>
+    <div className="card-search">
+      <h2>Search Cards</h2>
 
       <div style={{ position: "relative", width: "300px" }}>
         <input
+          className="search-bar"
           type="text"
           placeholder="Enter card name"
           value={searchTerm}
@@ -45,22 +46,7 @@ export default function CardSearch() {
         />
 
         {showDropdown && cardNames.length > 0 && (
-          <ul
-            style={{
-              position: "absolute",
-              top: "100%",
-              left: 0,
-              right: 0,
-              border: "1px solid #ccc",
-              background: "#fff",
-              listStyle: "none",
-              margin: 0,
-              padding: 0,
-              maxHeight: "200px",
-              overflowY: "auto",
-              zIndex: 10,
-            }}
-          >
+          <ul className="dropdown">
             {cardNames.map((card) => (
               <li
                 key={card.name}
