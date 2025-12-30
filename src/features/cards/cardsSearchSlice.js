@@ -11,7 +11,13 @@ export const fetchCardNames = createAsyncThunk(
 const cardsSearchSlice = createSlice({
   name: "cardsSearch",
   initialState: { cards: [], limit: 20, status: "idle", error: null },
-  reducers: {},
+  reducers: {
+    clearCardSearch(state) {
+      state.cards = [];
+      state.status = "idle";
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCardNames.pending, (state) => {
@@ -29,4 +35,5 @@ const cardsSearchSlice = createSlice({
   },
 });
 
+export const { clearCardSearch } = cardsSearchSlice.actions;
 export default cardsSearchSlice.reducer;

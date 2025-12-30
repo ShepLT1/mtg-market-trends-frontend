@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCards } from "../features/cards/cardsSlice";
-import { fetchCardNames } from "../features/cards/cardsSearchSlice";
+import { fetchCardNames, clearCardSearch } from "../features/cards/cardsSearchSlice";
 import CardItem from "../components/CardItem";
 
 export default function CardSearch() {
@@ -26,9 +26,9 @@ export default function CardSearch() {
   }, [searchTerm, dispatch]);
 
   const handleSelectName = (name) => {
-    setSearchTerm(name);
-    setShowDropdown(false);
+    setSearchTerm("");
     dispatch(fetchCards({ name }));
+    dispatch(clearCardSearch());
   };
 
   return (
