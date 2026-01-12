@@ -123,7 +123,9 @@ select:focus {
 }
 
 .report-left-column {
-  flex: 0 190px; /* fixed width for left column */
+  flex: 0 1 auto; /* don't grow, allow shrink */
+  min-width: 125px;
+  max-width: 150px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -138,7 +140,6 @@ select:focus {
   border: 5px solid rgba(0,0,0,0.7);
   padding: 15px;
   height: 360px;
-  width: 150px;
 }
 
 .report-form-section {
